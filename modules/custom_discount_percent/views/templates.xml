@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Badge de descuento en esquina superior izquierda del catálogo -->
+    <template id="products_item_discount_percent" inherit_id="website_sale.products_item" priority="99">
+        <xpath expr="//form[hasclass('oe_product_cart')]" position="inside">
+            <t t-set="price_final" t-value="product.list_price"/>
+            <t t-set="price_base" t-value="product.compare_list_price"/>
+            
+            <t t-if="price_base and price_base &gt; 0 and price_final &lt; price_base">
+                <div class="discount_badge_corner_catalog">
+                    <t t-set="discount_percent" t-value="int(round((price_base - price_final) / price_base * 100))"/>
+                    <span class="badge bg-danger">
+                        -<t t-esc="discount_percent"/>%
+                    </span>
+                </div>
+            </t>
+        </xpath>
+    </template>
+
+    <!-- Badge de descuento en vista individual del producto -->
+    <template id="product_discount_percent" inherit_id="website_sale.shop_product_image" priority="99">
+    <xpath expr="//div[@name='o_img_with_max_suggested_width']" position="before">
+        <t t-set="price_final" t-value="product.list_price"/>
+        <t t-set="price_base" t-value="product.compare_list_price"/>
+        
+        <t t-if="price_base and price_base &gt; 0 and price_final &lt; price_base">
+            <div class="discount_badge_product_detail" style="position:absolute; top:10px; left:10px; z-index:10;">
+                <t t-set="discount_percent" t-value="int(round((price_base - price_final) / price_base * 100))"/>
+                <span class="badge bg-danger">
+                    -<t t-esc="discount_percent"/>%
+                </span>
+            </div>
+        </t>
+    </xpath>
+    </template>
+
+</odoo>

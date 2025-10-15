@@ -1,0 +1,60 @@
+/* ===== BADGE EN CATÁLOGO - ESQUINA SUPERIOR IZQUIERDA ===== */
+.o_wsale_product_grid_wrapper {
+    position: relative !important;
+}
+
+.discount_badge_corner_catalog {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 999;
+}
+
+.discount_badge_corner_catalog .badge {
+    font-weight: 700;
+    padding: 0.5em 0.7em;
+    font-size: 1.0em;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    border-radius: 6px;
+    background-color: #dc3545 !important;
+    color: white !important;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ===== BADGE EN PÁGINA INDIVIDUAL - POSICIONADO SOBRE LA IMAGEN ===== */
+#product_detail_main {
+    position: relative;
+}
+
+.discount_badge_product_detail {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 999;
+}
+
+.discount_badge_product_detail .badge {
+    font-weight: 700;
+    padding: 0.7em 1.1em;
+    font-size: 1.5em;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    color: white !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    animation: pulse-glow 2.5s ease-in-out infinite;
+    letter-spacing: 1px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 6px 20px rgba(220, 53, 69, 0.5);
+    }
+    50% {
+        transform: scale(1.03);
+        box-shadow: 0 7px 22px rgba(220, 53, 69, 0.6);
+    }
+}
